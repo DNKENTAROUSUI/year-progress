@@ -1,46 +1,42 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Year Progress</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
-</head>
+/* 円グラフ全体 */
+.circle-wrapper {
+  position: relative;
+  width: 120px;
+  margin: 20px auto;
+}
 
-<body>
-  <div class="container">
-    <header>
-      <h1>📊 Year Progress</h1>
-      <p class="subtitle">今年の残り日数と進捗</p>
-    </header>
+/* 背景円 */
+.circle-bg {
+  fill: none;
+  stroke: #e5e7eb;
+  stroke-width: 10;
+}
 
-    <main class="cards">
-      <div class="card">
-        <h2>残り日数</h2>
-        <p class="value" id="daysRemaining">計算中...</p>
-      </div>
+/* 進捗円 */
+.circle-progress {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
 
-      <div class="card">
-        <h2>終了率（小数）</h2>
-        <p class="value" id="progressFraction">計算中...</p>
-      </div>
-    </main>
+  /* グラデーションっぽく */
+  stroke: #4facfe;
 
-    <section class="progress-bar-section">
-      <div class="progress-bar-container">
-        <div class="progress-bar-fill" id="progressBar"></div>
-      </div>
-      <p class="progress-bar-label">
-        <span id="progressPercent">0.00</span> %
-      </p>
-    </section>
+  transform: rotate(-90deg);
+  transform-origin: center;
 
-    <section class="info">
-      <p><strong>現在日時：</strong><span id="currentTime">-</span></p>
-      <p><strong>今年：</strong><span id="currentYear">-</span></p>
-      <p><strong>うるう年：</strong><span id="leapYear">-</span></p>
-    </section>
-  </div>
-</body>
-</html>
+  stroke-dasharray: 314; /* 2πr ≒ 314 */
+  stroke-dashoffset: 314;
+
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+/* 中央の数値 */
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+}
+``
